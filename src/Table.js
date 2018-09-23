@@ -21,6 +21,7 @@ const TableBody = (props) => {
 			<tr key={index} >
 	            <td> {row.name} </td>
 	            <td> <i>{row.job} </i></td>
+	            <td> <button onClick={ ()=> props.removeCharacter(index) }> Delete </button> </td>
 	        </tr>
         );
 	});
@@ -37,13 +38,13 @@ class Table extends Component{
 
 	render(){
 		
-		const {characterData} = this.props;
+		const {characterData, removeCharacter} = this.props;
 		//console.log(characterData);
 
 		return(
 			<table>
                <TableHead/>
-               <TableBody characterData={characterData} /> 
+               <TableBody characterData={characterData} removeCharacter={removeCharacter}/> 
             </table>
 	    );
 	}
