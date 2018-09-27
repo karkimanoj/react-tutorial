@@ -1,50 +1,38 @@
 import React, { Component } from 'react';
-import Table from './Table';
+
+import UserTable from './UserTable';
+import Clock from './Clock';
+import Calculator from './Calculator';
+import SignupMars from './SignupMars';
 
 class App extends Component {
-
-	constructor (props){
-		super(props);
-		this.state = {
-			characters : [
-				{
-					name : 'Pawal Adhikari',
-					job : 'senior s/w engineer'
-				},
-				{
-					name : 'Nischal Shrestha',
-					job : 'junior s/w engineer'
-				},
-				{
-					name : 'Rajesh Mahato',
-					job : 'React Developer'
-				},
-				{
-					name : 'Sudip Pohrel',
-					job : 'Front-End developer'
-				}
-
-	  		]
-		};
-	}
-	
-	removeCharacter = (index) => {
-		const {characters} = this.state;
-
-		this.setState({
-			characters : characters.filter((character, i) => {
-				return (i !== index);
-			})
-		});
-	}
 
   	render() {
 
 	    return (
-	    	<div className='container'> 
-	    		<h1> A table example with component and props and state </h1>
-	    		 <Table characterData={ this.state.characters } removeCharacter = {this.removeCharacter}/>
-
+	    	<div className='full-container'> 
+	    		<div className='small-container'>
+					<h1>1. A table and form example with component and props and state </h1>
+					<UserTable />
+	    			
+	    		</div>
+	  
+	    	
+	    		<hr/>
+	    		<div className='small-container'>
+					<h1>2. states and lifecycle hooks and event handling by displaying Clock </h1>
+	    			<Clock />
+	    		</div>	   
+				<div className='small-container'>
+					<h1>3. Temperature Conversion 
+					<i><small> ( handling events like click,change,etc )</small></i></h1>
+	    			<Calculator />
+	    		</div>
+	    		<div className='small-container'>
+					<h1>4. Containment example <i><small> : passing children elements to inner components 
+					 props.children</small></i></h1>
+	    			<SignupMars />
+	    		</div>
 	    	</div>
 	    	/* passing characters json variable as characterData property to table component */
 	    );
